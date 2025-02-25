@@ -1,0 +1,945 @@
+@media screen and (min-width: 1400px) and (max-width: 1599px) {
+    .smart-securety-wrpper {
+        padding-top: 86px;
+        padding-bottom: 234px;
+    }
+
+    .call-to-book {
+        padding-top: 120px;
+    }
+}
+
+/*=============================
+Extra Large Screen - Others
+===============================*/
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+    .feature-area {
+        padding-top: 0;
+    }
+    #feature-row {
+        padding: 70px 0;
+    }
+
+    .book-consultation {
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    .smart-securety-wrpper {
+        padding-top: 86px;
+        padding-bottom: 171px;
+    }
+    .explore-row {
+        padding-top: 85px;
+    }
+
+    .play-stop-icon {
+        height: 570px;
+    }
+
+    .setup-guide-right .accordion {
+        row-gap: 20px;
+    }
+    .accordion-header h3 {
+        font-size: 30px;
+    }
+    .setup-guide-content p {
+        font-size: 22px;
+    }
+
+    .call-to-book {
+        padding-top: 100px;
+    }
+}
+
+/*========================
+Large Screen - Leptop
+==========================*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .header-area::after {
+        top: -50px;
+    }
+    .hero-main-title h1 {
+        font-size: 60px;
+        margin-top: 25px;
+        margin-bottom: 45px;
+    }
+
+    #play-pause {
+        height: 520px;
+    }
+
+    .book-consultation {
+        padding-top: 0px;
+        padding-bottom: 30px;
+    }
+    .book-consultation-wrpper h2 {
+        font-size: 65px;
+    }
+
+    .discover-wrpper {
+        padding: 55px 0;
+        border-radius: 95px;
+    }
+    .discover-cnt-wrpper h2 {
+        font-size: 55px;
+    }
+
+    .question-community {
+        padding-top: 90px;
+    }
+    .question-community-top h2 {
+        margin-bottom: 20px;
+    }
+    .question-community-top p {
+        margin-bottom: 26px;
+    }
+    .accordion-wrpper {
+        padding-top: 70px;
+    }
+    .explore-row {
+        padding-top: 85px;
+    }
+    .explore-title h4 {
+        font-size: 28px;
+        line-height: 120%;
+    }
+    .smart-top h2 {
+        padding-bottom: 62px;
+    }
+
+    .who-using-area,
+    .belto-works-area,
+    .why-belto-area,
+    .setup-guide-area,
+    .security-privacy-area,
+    .discover-belto-area,
+    .call-to-book {
+        padding-top: 80px;
+    }
+    .who-using-top h3,
+    .belto-works-top h3,
+    .why-belto-top h3,
+    .setup-guide-top h3,
+    .area-top h3 {
+        margin-bottom: 16px;
+    }
+    .who-using-wrpper {
+        row-gap: 30px;
+    }
+
+    .belto-works-wrpper {
+        row-gap: 45px;
+    }
+
+    .play-stop-icon {
+        height: 470px;
+    }
+    .why-belto-right {
+        padding-left: 35px;
+    }
+    .why-belto-wrpper .row,
+    .setup-guide-wrpper .row,
+    .security-privacy-cntn {
+        margin-top: 50px;
+    }
+
+    .setup-guide-right .accordion {
+        row-gap: 20px;
+    }
+    .accordion-item {
+        padding: 15px;
+    }
+    .accordion-header h3 {
+        font-size: 24px;
+    }
+    .setup-guide-content p {
+        font-size: 20px;
+    }
+    .setup-guide-vedio {
+        margin-left: 25px;
+    }
+
+    .security-privacy-cntn {
+        padding: 50px;
+    }
+    .security-desc {
+        padding-left: 35px;
+    }
+
+    .discover-belto-title h2 {
+        max-width: 630px;
+        font-size: 45px;
+    }
+    .single-plane {
+        row-gap: 20px;
+    }
+    .pkg-list {
+        row-gap: 16px;
+    }
+
+    .smart-securety-wrpper {
+        padding-top: 10px;
+        padding-bottom: 140px;
+    }
+}
+
+/*=========================
+Medium Screen - Tablate
+=========================*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .header-area::after {
+        top: -80px;
+    }
+    .header-sub-title h4 {
+        font-size: 40px;
+    }
+    .hero-main-title h1 {
+        font-size: 50px;
+        margin-top: 15px;
+        margin-bottom: 35px;
+    }
+
+    .video-player {
+        padding-top: 0px;
+    }
+    #play-pause {
+        height: 420px;
+    }
+    .book-consultation {
+        padding-top: 0px;
+        padding-bottom: 30px;
+    }
+    .book-consultation-wrpper h2 {
+        font-size: 45px;
+    }
+    .question-community {
+        padding: 70px 0;
+    }
+    .question-community-top h2 {
+        margin-bottom: 20px;
+    }
+    .question-community-top p {
+        margin-bottom: 26px;
+    }
+    .accordion-wrpper {
+        padding-top: 50px;
+    }
+    .accordion-container .accordion-title p {
+        font-size: 22px;
+    }
+
+    .smart-securety-wrpper {
+        padding-top: 0;
+        padding-bottom: 40px;
+    }
+    .explore-row {
+        padding-top: 35px;
+    }
+    .explore-title h4 {
+        font-size: 28px;
+        line-height: 120%;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+    .smart-top h2 {
+        padding-bottom: 42px;
+        font-size: 41px;
+    }
+    .smart-top a {
+        max-width: 510px;
+        font-size: 35px;
+        border-radius: 20px;
+    }
+
+    .who-using-area,
+    .belto-works-area,
+    .why-belto-area,
+    .setup-guide-area,
+    .security-privacy-area,
+    .discover-belto-area,
+    .call-to-book {
+        padding-top: 55px;
+    }
+    .who-using-top h3,
+    .belto-works-top h3,
+    .why-belto-top h3,
+    .setup-guide-top h3,
+    .area-top h3 {
+        margin-bottom: 16px;
+    }
+    .who-using-wrpper {
+        row-gap: 30px;
+    }
+    .single-count {
+        padding-left: 20px;
+    }
+
+    .belto-works-wrpper {
+        row-gap: 30px;
+    }
+    .single-work-box {
+        height: 100%;
+    }
+    .work-desc h4 {
+        margin-top: 30px;
+    }
+    .work-desc p {
+        padding: 0;
+    }
+
+    .play-stop-icon {
+        height: 380px;
+    }
+    .why-belto-right {
+        padding-left: 15px;
+    }
+    .why-belto-wrpper .row,
+    .setup-guide-wrpper .row,
+    .security-privacy-cntn {
+        margin-top: 35px;
+    }
+    .play-stop-icon::before {
+        width: 65px;
+        height: 65px;
+    }
+    .play-stop-icon::after {
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 17px solid #000;
+    }
+
+    .setup-guide-right .accordion {
+        row-gap: 20px;
+        padding-top: 30px;
+    }
+    .accordion-item {
+        padding: 15px;
+    }
+    .accordion-header h3 {
+        font-size: 20px;
+    }
+    .setup-guide-content p {
+        font-size: 20px;
+    }
+    .setup-guide-vedio {
+        margin-left: 0;
+    }
+
+    .security-privacy-cntn {
+        padding: 30px;
+    }
+    .security-desc {
+        padding-left: 35px;
+        row-gap: 13px;
+    }
+    .security-img {
+        width: 130px;
+    }
+    .security-img img {
+        width: 100%;
+    }
+    .security-desc p {
+        font-size: 20px;
+    }
+
+    .discover-belto-title h2 {
+        max-width: 510px;
+        font-size: 40px;
+    }
+    .single-plane {
+        row-gap: 20px;
+    }
+    .pkg-list {
+        row-gap: 16px;
+    }
+    .custom-heading h2 {
+        font-size: 35px;
+    }
+    .price-show h3 {
+        font-size: 40px;
+    }
+    .plane-row {
+        padding: 30px 0;
+    }
+
+    .discover-wrpper {
+        border-radius: 90px;
+        padding: 90px 0;
+    }
+    .discover-cnt-wrpper p {
+        padding: 0 30px;
+    }
+    .single-component h3 {
+        margin: 10px 0;
+    }
+    .video-wrpper iframe {
+        height: 420px;
+    }
+}
+
+/*=====================
+Small Screen - Mobile
+=======================*/
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .header-area::after {
+        height: 37% !important;
+    }
+    .header-sub-title h4 {
+        font-size: 30px;
+    }
+    .hero-main-title h1 {
+        font-size: 36px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    #header-title {
+        padding-top: 60px;
+    }
+    .header-wrpper {
+        padding-bottom: 60px;
+    }
+
+    .video-player {
+        padding-top: 0px;
+    }
+    #play-pause {
+        height: 310px;
+    }
+    #play-pause::after {
+        width: 70px;
+        height: 70px;
+    }
+
+    .book-consultation {
+        padding-top: 0px;
+        padding-bottom: 30px;
+    }
+    .book-consultation-wrpper h2 {
+        font-size: 35px;
+    }
+
+    .discover-wrpper {
+        padding: 30px 30px;
+        border-radius: 40px;
+    }
+    .discover-cnt-wrpper h2 {
+        font-size: 36px;
+    }
+
+    .question-community {
+        padding: 50px 0;
+    }
+    .question-community-top h2 {
+        margin-bottom: 20px;
+    }
+    .question-community-top p {
+        margin-bottom: 26px;
+    }
+    .accordion-wrpper {
+        padding-top: 50px;
+    }
+    .accordion-container .accordion-title p {
+        font-size: 22px;
+    }
+
+    .smart-securety-wrpper {
+        padding-top: 0;
+        padding-bottom: 40px;
+    }
+    .explore-row {
+        padding-top: 35px;
+    }
+    .explore-title h4 {
+        font-size: 28px;
+        line-height: 120%;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+    .smart-top h2 {
+        padding-bottom: 30px;
+        font-size: 27px;
+    }
+    .smart-top a {
+        max-width: 360px;
+        font-size: 26px;
+        border-radius: 16px;
+        padding: 10px 19px;
+    }
+    .smart-top a img {
+        width: 25px;
+    }
+
+    .footer-bottom {
+        padding-bottom: 20px;
+    }
+
+    .who-using-area,
+    .belto-works-area,
+    .why-belto-area,
+    .setup-guide-area,
+    .security-privacy-area,
+    .discover-belto-area,
+    .call-to-book {
+        padding-top: 55px;
+    }
+    .who-using-top h3,
+    .belto-works-top h3,
+    .why-belto-top h3,
+    .setup-guide-top h3,
+    .area-top h3 {
+        margin-bottom: 16px;
+    }
+    .who-using-wrpper {
+        row-gap: 30px;
+    }
+    .single-count {
+        text-align: center;
+    }
+
+    .belto-works-wrpper {
+        row-gap: 30px;
+    }
+    .single-work-box {
+        height: 100%;
+    }
+    .work-desc h4 {
+        margin-top: 30px;
+    }
+    .work-desc p {
+        padding: 0;
+    }
+
+    .play-stop-icon {
+        height: 300px;
+    }
+    .why-belto-right {
+        padding-left: 0;
+        padding-top: 0;
+    }
+    .why-belto-wrpper .row,
+    .setup-guide-wrpper .row,
+    .security-privacy-cntn {
+        margin-top: 25px;
+    }
+    .play-stop-icon::before {
+        width: 65px;
+        height: 65px;
+    }
+    .play-stop-icon::after {
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 17px solid #000;
+    }
+    .why-belto-right h3 {
+        margin: 20px 0;
+    }
+
+    .setup-guide-right .accordion {
+        row-gap: 20px;
+        padding-top: 30px;
+    }
+    .accordion-item {
+        padding: 15px;
+    }
+    .accordion-header h3 {
+        font-size: 20px;
+    }
+    .setup-guide-content p {
+        font-size: 20px;
+    }
+    .setup-guide-vedio {
+        margin-left: 0;
+    }
+
+    .security-privacy-cntn {
+        padding: 20px;
+    }
+    .security-desc {
+        padding-left: 20px;
+        row-gap: 8px;
+    }
+    .security-img {
+        width: 110px;
+    }
+    .security-img img {
+        width: 100%;
+    }
+    .security-desc p {
+        font-size: 16px;
+    }
+
+    .discover-belto-title h2 {
+        max-width: 510px;
+        font-size: 30px;
+        margin-top: 15px;
+    }
+    .single-plane {
+        row-gap: 20px;
+    }
+    .pkg-list {
+        row-gap: 16px;
+    }
+    .custom-heading h2 {
+        font-size: 35px;
+    }
+    .price-show h3 {
+        font-size: 40px;
+    }
+    .plane-row {
+        padding: 30px 0;
+    }
+    .discover-belto-title button {
+        margin-top: 24px;
+    }
+    .plane-row {
+        row-gap: 30px;
+    }
+
+    .discover-wrpper {
+        border-radius: 60px;
+        padding: 60px 0;
+    }
+    .discover-cnt-wrpper p {
+        padding: 0 30px;
+    }
+    .call-to-book-wrpper h2 {
+        font-size: 60px;
+    }
+    .call-to-book {
+        padding-bottom: 25px;
+    }
+    .video-wrpper iframe {
+        height: 330px;
+    }
+    #why-belto .col-md-6 {
+        height: 280px;
+    }
+}
+
+/*===============================
+Xtra Small Screen - Small Mobile
+=================================*/
+@media screen and (max-width: 575px) {
+    .header-area::after {
+        height: 37% !important;
+    }
+    .header-sub-title h4 {
+        font-size: 25px;
+    }
+    .hero-main-title h1 {
+        font-size: 30px;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+    #header-title {
+        padding-top: 40px;
+    }
+    .header-wrpper {
+        padding-bottom: 35px;
+        padding-top: 15px;
+    }
+
+    .video-player {
+        padding-top: 20px;
+    }
+    #play-pause,
+    #video-tutorial {
+        height: 230px;
+    }
+    #play-pause::after,
+    #video-tutorial::after {
+        width: 60px;
+        height: 60px;
+    }
+    #play-pause::before,
+    #video-tutorial::before {
+        width: 15px;
+        height: 20px;
+    }
+
+    .book-consultation {
+        padding-top: 0px;
+        padding-bottom: 30px;
+    }
+    .book-consultation-wrpper h2 {
+        font-size: 27px;
+    }
+
+    .discover-wrpper {
+        padding: 30px 30px;
+        border-radius: 40px;
+    }
+    .discover-cnt-wrpper h2 {
+        font-size: 28px;
+    }
+    .discover-cnt-wrpper p {
+        font-size: 17px;
+    }
+    .discover-cnt-wrpper {
+        row-gap: 15px;
+    }
+
+    .question-community {
+        padding: 30px 0;
+    }
+    .question-community-top h2 {
+        margin-bottom: 10px;
+        font-size: 30px;
+    }
+    .question-community-top p {
+        margin-bottom: 20px;
+    }
+    .accordion-wrpper {
+        padding-top: 30px;
+    }
+    .single-accordion-item {
+        padding: 18px 20px;
+    }
+    .accordion-container .accordion-title p {
+        font-size: 18px;
+    }
+    .accordion-content p {
+        padding-top: 18px;
+    }
+    #accordion {
+        row-gap: 12px;
+    }
+
+    .smart-securety-wrpper {
+        padding-top: 0;
+        padding-bottom: 40px;
+    }
+    .explore-row {
+        padding-top: 25px;
+    }
+    .explore-title h4 {
+        font-size: 23px;
+        line-height: 120%;
+        text-align: center;
+        padding-bottom: 25px;
+    }
+    .smart-top h2 {
+        padding-bottom: 30px;
+        font-size: 21px;
+    }
+    .smart-top a {
+        max-width: 303px;
+        font-size: 21px;
+        border-radius: 16px;
+        padding: 10px 15px;
+    }
+    .smart-top a img {
+        width: 25px;
+    }
+    .explore-list ul {
+        flex-direction: column;
+        row-gap: 16px;
+    }
+    .explore-list ul li {
+        width: 100%;
+    }
+
+    .footer-bottom {
+        padding-bottom: 20px;
+    }
+
+    .copy-right p {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+
+    .copy-right p br {
+        display: none;
+    }
+    .social-list {
+        justify-content: center;
+    }
+
+    .who-using-area,
+    .belto-works-area,
+    .why-belto-area,
+    .setup-guide-area,
+    .security-privacy-area,
+    .discover-belto-area {
+        padding-top: 35px;
+    }
+    .who-using-top h3,
+    .belto-works-top h3,
+    .why-belto-top h3,
+    .setup-guide-top h3 {
+        margin-bottom: 8px;
+        font-size: 30px;
+    }
+    .who-using-wrpper {
+        row-gap: 15px;
+    }
+    .single-count {
+        text-align: center;
+    }
+
+    .belto-works-wrpper {
+        row-gap: 15px;
+    }
+    .single-work-box {
+        height: 100%;
+        padding-top: 30px;
+    }
+    .work-desc h4 {
+        margin-top: 30px;
+    }
+    .work-desc p {
+        padding: 0;
+    }
+
+    .play-stop-icon {
+        height: 300px;
+    }
+    .why-belto-right {
+        padding-left: 0;
+        padding-top: 30px;
+    }
+    .why-belto-wrpper .row {
+        margin-top: 25px;
+    }
+    .play-stop-icon::before {
+        width: 65px;
+        height: 65px;
+    }
+    .why-belto-right h3 {
+        margin: 20px 0;
+    }
+    .play-stop-icon::after {
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 17px solid #000;
+    }
+
+    .play-stop-icon {
+        height: 240px;
+    }
+    .why-belto-right {
+        padding-left: 0;
+        padding-top: 30px;
+    }
+    .why-belto-wrpper .row,
+    .setup-guide-wrpper .row,
+    .security-privacy-cntn {
+        margin-top: 18px;
+    }
+    .play-stop-icon::before {
+        width: 65px;
+        height: 65px;
+    }
+    .play-stop-icon::after {
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 17px solid #000;
+    }
+    .why-belto-right h3 {
+        margin: 15px 0;
+        font-size: 30px;
+    }
+
+    .setup-guide-right .accordion {
+        row-gap: 15px;
+        padding-top: 30px;
+    }
+    .accordion-item {
+        padding: 15px;
+    }
+    .accordion-header h3 {
+        font-size: 18px;
+    }
+    .setup-guide-content p {
+        font-size: 20px;
+    }
+    .setup-guide-vedio {
+        margin-left: 0;
+    }
+    .accordion-header span {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+    .setup-guide-content {
+        padding-top: 10px;
+    }
+
+    .security-privacy-cntn {
+        padding: 20px;
+        flex-direction: column;
+    }
+    .security-desc {
+        padding-left: 0;
+        row-gap: 8px;
+        width: 100%;
+        padding-top: 20px;
+    }
+    .security-img {
+        width: 70px;
+    }
+    .security-img img {
+        width: 100%;
+    }
+    .security-desc p {
+        font-size: 16px;
+    }
+    .area-top h3 {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+
+    .discover-belto-title h2 {
+        max-width: 510px;
+        font-size: 21px;
+        margin-top: 15px;
+    }
+    .single-plane {
+        row-gap: 20px;
+    }
+    .pkg-list {
+        row-gap: 16px;
+    }
+    .custom-heading h2 {
+        font-size: 35px;
+    }
+    .price-show h3 {
+        font-size: 40px;
+    }
+    .plane-row {
+        padding: 30px 0;
+    }
+    .discover-belto-title button {
+        margin-top: 24px;
+    }
+    .plane-row {
+        row-gap: 30px;
+    }
+
+    .discover-wrpper {
+        border-radius: 40px;
+        padding: 50px 0;
+    }
+    .discover-cnt-wrpper p {
+        padding: 0 30px;
+    }
+    .call-to-book-wrpper h2 {
+        font-size: 39px;
+    }
+    .call-to-book {
+        padding-bottom: 15px;
+        padding-top: 30px;
+    }
+    #hero-button {
+        padding-top: 20px;
+    }
+    .video-wrpper iframe {
+        height: 330px;
+    }
+    #why-belto .col-md-6 {
+        height: 280px;
+    }
+    .setup-guide-wrpper {
+        padding-top: 40px;
+    }
+}
