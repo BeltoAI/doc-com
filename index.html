@@ -169,6 +169,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <div id="hero-button">
                         <a class="wow fadeInUp" href="https://calendly.com/beltoworld/30min">Schedule 15-Min Call</a>
+                        <!-- Event snippet for Submit lead form conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17275140379/aMRaCNT8zOQaEJvytq1A',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
                     </div>
                     <div id="hero-button">
                         <a class="wow fadeInUp" href="https://form.typeform.com/to/ShfVBFqM">MERN for more?</a>
