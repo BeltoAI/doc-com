@@ -7,32 +7,25 @@ const app = express();
 
 // Allow specific domains for CORS
 const allowedOrigins = [
-  'https://belto.world',
-  'https://website-3xprmt1x3-beltos-projects.vercel.app', // <-- Add your Vercel deployment domain
+  'https://belto.world', // Make sure this matches exactly
+  'https://website-3xprmt1x3-beltos-projects.vercel.app', // Add your Vercel domain
 ];
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: allowedOrigins,
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'x-api-key'],
   credentials: true, // Allow cookies and credentials
 }));
 
-// Preflight OPTIONS request handling
+// Preflight OPTIONS request
 app.options('/chat', (req, res) => {
   res.set({
-    'Access-Control-Allow-Origin': req.headers.origin || '*',  // Dynamically set origin
+    'Access-Control-Allow-Origin': req.headers.origin || '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, x-api-key',
-    'Access-Control-Allow-Credentials': 'true', // Allow credentials
+    'Access-Control-Allow-Headers': 'Content-Type, x-api-key'
   });
-  res.sendStatus(204);  // No Content
+  res.sendStatus(204);
 });
 
 app.use(express.json());
