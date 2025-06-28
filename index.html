@@ -253,9 +253,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       const formattedPrompt = `<|system|>\n${systemPrompt}\n<|context|>\n${contextText}\n<|user|>\n${message}\n<|assistant|>\n`;
 
-      const res = await fetch('https://api.belto.world/api/chat', {
+      const res = await fetch('https://api.belto.world/chat', {
   method: 'POST',
-  mode: 'cors',
   headers: {
     'Content-Type': 'application/json',
     'x-api-key': 'belto_super_secure_34892_z7d8'
