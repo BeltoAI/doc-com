@@ -1,23 +1,20 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
-
 const { fetch } = require('undici');
 
 const app = express();
 
-// List of allowed domains
 const allowedOrigins = [
   'https://belto.world',
-  'https://website-4tbxmnzk06-beltos-projects.vercel.app',
-  'https://website-mm7t14b4e-beltos-projects.vercel.app/'
+  'https://website-3xprmt1x3-beltos-projects.vercel.app', // <-- Vercel URL
 ];
 
 app.use(cors({
-  origin: allowedOrigins,  // Allow the frontend domains listed above
+  origin: allowedOrigins,
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'x-api-key'],
-  credentials: true,  // Allow cookies and credentials
+  credentials: true,
 }));
 
 // Preflight OPTIONS request
@@ -26,10 +23,11 @@ app.options('/chat', (req, res) => {
     'Access-Control-Allow-Origin': req.headers.origin || '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, x-api-key',
-    'Access-Control-Allow-Credentials': 'true',  // Allow cookies
+    'Access-Control-Allow-Credentials': 'true',
   });
-  res.sendStatus(204);  // Send a successful response
+  res.sendStatus(204);
 });
+
 
 app.use(express.json());
 
