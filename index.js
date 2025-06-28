@@ -5,28 +5,28 @@ const { fetch } = require('undici');
 
 const app = express();
 
-// Allow specific domains for CORS
+// List of allowed domains
 const allowedOrigins = [
-  'https://belto.world', // Frontend domain
-  'https://website-3xprmt1x3-beltos-projects.vercel.app', // Vercel deployment domain
+  'https://belto.world',
+  'https://website-4tbxmnzk06-beltos-projects.vercel.app', // Replace with correct Vercel deployment URL
 ];
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: allowedOrigins, // Dynamic CORS for allowed origins
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'x-api-key'],
   credentials: true, // Allow cookies and credentials
 }));
 
-// Preflight OPTIONS request
+// Handle Preflight OPTIONS request
 app.options('/chat', (req, res) => {
   res.set({
     'Access-Control-Allow-Origin': req.headers.origin || '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, x-api-key',
-    'Access-Control-Allow-Credentials': 'true' // Allow credentials
+    'Access-Control-Allow-Credentials': 'true' // Allow cookies
   });
-  res.sendStatus(204); // No content, just acknowledgment
+  res.sendStatus(204);
 });
 
 app.use(express.json());
