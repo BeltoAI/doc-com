@@ -15,9 +15,10 @@ app.use(cors({
   origin: allowedOrigins,
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'x-api-key'],
-  credentials: false
+  credentials: true // Allows cookies and credentials
 }));
 
+// OPTIONS Preflight Request Handler (CORS)
 app.options('/chat', (req, res) => {
   res.set({
     'Access-Control-Allow-Origin': req.headers.origin || '*',
