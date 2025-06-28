@@ -7,8 +7,8 @@ const app = express();
 
 // Allow specific domains for CORS
 const allowedOrigins = [
-  'https://belto.world', // Make sure this matches exactly
-  'https://website-3xprmt1x3-beltos-projects.vercel.app', // Add your Vercel domain
+  'https://belto.world', // Frontend domain
+  'https://website-3xprmt1x3-beltos-projects.vercel.app', // Vercel deployment domain
 ];
 
 app.use(cors({
@@ -23,9 +23,10 @@ app.options('/chat', (req, res) => {
   res.set({
     'Access-Control-Allow-Origin': req.headers.origin || '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, x-api-key'
+    'Access-Control-Allow-Headers': 'Content-Type, x-api-key',
+    'Access-Control-Allow-Credentials': 'true' // Allow credentials
   });
-  res.sendStatus(204);
+  res.sendStatus(204); // No content, just acknowledgment
 });
 
 app.use(express.json());
