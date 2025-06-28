@@ -7,42 +7,38 @@ const app = express();
 
 // ✅ Adjust this list based on actual frontend domains (Vercel + custom)
 const allowedOrigins = [
-  'https://belto.world',
-  'https://website-3xprmt1x3-beltos-projects.vercel.app' // <-- Add your Vercel deployment domain
+  'https://belto.world', // Your production frontend domain
+  'https://website-3xprmt1x3-beltos-projects.vercel.app', // Your Vercel deployment domain
 ];
 
-const corsOptionsDelegate = function (req, callback) {
-  const origin = req.header('Origin');
-  if (allowedOrigins.includes(origin)) {
-    callback(null, {
-      origin: origin,
-      methods: ['POST', 'OPTIONS'],
-      allowedHeaders: ['Content-Type', 'x-api-key'],
-      credentials: false
-    });
-  } else {
-    callback(new Error('Not allowed by CORS'));
-  }
-};
+// Enable CORS for the allowed domains
+app.use(cors({
+  origin: function(origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'x-api-key'],
+  credentials: false
+}));
 
-app.use(cors(corsOptionsDelegate)); // CORS setup
-
-app.use(express.json());
-
-const API_KEY = process.env.API_KEY;
-const LLAMA_URL = process.env.LLAMA_URL;
-
-// CORS pre-flight request handling
 app.options('/chat', (req, res) => {
   res.set({
     'Access-Control-Allow-Origin': req.headers.origin || '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, x-api-key'
   });
-  res.sendStatus(204);
+  res.sendStatus(204); // Pre-flight request response
 });
 
-// Handle chat request
+app.use(express.json());
+
+const API_KEY = process.env.API_KEY;
+const LLAMA_URL = process.env.LLAMA_URL;
+
 app.post('/chat', async (req, res) => {
   const incomingKey = req.headers['x-api-key'];
   if (incomingKey !== API_KEY) {
@@ -64,8 +60,5 @@ app.post('/chat', async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(3001, () => {
-  console.log('✅ Proxy running on port 3001');
-});
+app.listen(3001, () => console.log('✅ Proxy running on port 3001'));
 
