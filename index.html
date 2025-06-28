@@ -253,14 +253,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       const formattedPrompt = `<|system|>\n${systemPrompt}\n<|context|>\n${contextText}\n<|user|>\n${message}\n<|assistant|>\n`;
 
-      const res = await fetch('https://api.belto.world/chat', {
+      await fetch('https://api.belto.world/chat', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
     'x-api-key': 'belto_super_secure_34892_z7d8'
   },
-  body: JSON.stringify({ prompt: formattedPrompt, n_predict: 256 })
+  body: JSON.stringify({ prompt: 'Test from frontend', n_predict: 32 })
 });
+
 
       if (!res.ok) throw new Error(`Server returned ${res.status}`);
 
