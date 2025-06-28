@@ -12,20 +12,27 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'x-api-key'],
   credentials: true, // Allow cookies and credentials
 }));
 
-// Preflight OPTIONS request
+// Preflight OPTIONS request handling
 app.options('/chat', (req, res) => {
   res.set({
-    'Access-Control-Allow-Origin': req.headers.origin || '*',
+    'Access-Control-Allow-Origin': req.headers.origin || '*',  // Dynamically set origin
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, x-api-key'
+    'Access-Control-Allow-Headers': 'Content-Type, x-api-key',
+    'Access-Control-Allow-Credentials': 'true', // Allow credentials
   });
-  res.sendStatus(204);
+  res.sendStatus(204);  // No Content
 });
 
 app.use(express.json());
