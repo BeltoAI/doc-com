@@ -7,24 +7,24 @@ const app = express();
 
 // List of allowed domains
 const allowedOrigins = [
-  'https://belto.world',
-  'https://website-4tbxmnzk06-beltos-projects.vercel.app', // Replace with correct Vercel deployment URL
+  'https://belto.world',  // your main domain
+  'https://website-4tbxmnzk06-beltos-projects.vercel.app', // your Vercel domain
 ];
 
 app.use(cors({
-  origin: allowedOrigins, // Dynamic CORS for allowed origins
+  origin: allowedOrigins,  // Allow the frontend domains listed above
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'x-api-key'],
-  credentials: true, // Allow cookies and credentials
+  credentials: true,  // Allow cookies and credentials
 }));
 
-// Handle Preflight OPTIONS request
+// Preflight OPTIONS request
 app.options('/chat', (req, res) => {
   res.set({
     'Access-Control-Allow-Origin': req.headers.origin || '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, x-api-key',
-    'Access-Control-Allow-Credentials': 'true' // Allow cookies
+    'Access-Control-Allow-Credentials': 'true',  // Allow cookies
   });
   res.sendStatus(204);
 });
