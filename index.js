@@ -5,23 +5,34 @@ const { fetch } = require('undici');
 
 const app = express();
 
+// ✅ Adjust this list based on actual frontend domains (Vercel + custom)
 const allowedOrigins = [
   'https://belto.world',
-  'https://website-3xprmt1x3-beltos-projects.vercel.app'
+  'https://website-3xprmt1x3-beltos-projects.vercel.app' // <-- Add your Vercel deployment domain
 ];
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('CORS not allowed'));
-    }
-  },
-  methods: ['POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'x-api-key'],
-}));
+const corsOptionsDelegate = function (req, callback) {
+  const origin = req.header('Origin');
+  if (allowedOrigins.includes(origin)) {
+    callback(null, {
+      origin: origin,
+      methods: ['POST', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'x-api-key'],
+      credentials: false
+    });
+  } else {
+    callback(new Error('Not allowed by CORS'));
+  }
+};
 
+app.use(cors(corsOptionsDelegate)); // CORS setup
+
+app.use(express.json());
+
+const API_KEY = process.env.API_KEY;
+const LLAMA_URL = process.env.LLAMA_URL;
+
+// CORS pre-flight request handling
 app.options('/chat', (req, res) => {
   res.set({
     'Access-Control-Allow-Origin': req.headers.origin || '*',
@@ -31,13 +42,10 @@ app.options('/chat', (req, res) => {
   res.sendStatus(204);
 });
 
-app.use(express.json());
-
-const API_KEY = process.env.API_KEY;
-const LLAMA_URL = process.env.LLAMA_URL;
-
+// Handle chat request
 app.post('/chat', async (req, res) => {
-  if (req.headers['x-api-key'] !== API_KEY) {
+  const incomingKey = req.headers['x-api-key'];
+  if (incomingKey !== API_KEY) {
     return res.status(403).json({ error: 'Forbidden' });
   }
 
@@ -56,4 +64,8 @@ app.post('/chat', async (req, res) => {
   }
 });
 
-app.listen(3001, () => console.log('✅ Proxy running on http://localhost:3001'));
+// Start the server
+app.listen(3001, () => {
+  console.log('✅ Proxy running on port 3001');
+});
+
