@@ -5,20 +5,20 @@ const { fetch } = require('undici');
 
 const app = express();
 
-// ✅ Adjust this list based on actual frontend domains (Vercel + custom)
+// Allow specific domains for CORS
 const allowedOrigins = [
   'https://belto.world',
-  'https://website-3xprmt1x3-beltos-projects.vercel.app' // <-- Add your Vercel deployment domain
+  'https://website-3xprmt1x3-beltos-projects.vercel.app', // <-- Add your Vercel deployment domain
 ];
 
 app.use(cors({
   origin: allowedOrigins,
   methods: ['POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'x-api-key'],
-  credentials: true // Allows cookies and credentials
+  credentials: true, // Allow cookies and credentials
 }));
 
-// OPTIONS Preflight Request Handler (CORS)
+// Preflight OPTIONS request
 app.options('/chat', (req, res) => {
   res.set({
     'Access-Control-Allow-Origin': req.headers.origin || '*',
@@ -55,4 +55,3 @@ app.post('/chat', async (req, res) => {
 });
 
 app.listen(3001, () => console.log('✅ Proxy running on port 3001'));
-
