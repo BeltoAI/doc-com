@@ -9,7 +9,8 @@ const app = express();
 // List of allowed domains
 const allowedOrigins = [
   'https://belto.world',
-  'https://website-4tbxmnzk06-beltos-projects.vercel.app' // Make sure this is the correct URL
+  'https://website-4tbxmnzk06-beltos-projects.vercel.app',
+  'https://website-mm7t14b4e-beltos-projects.vercel.app/'
 ];
 
 app.use(cors({
