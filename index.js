@@ -1,58 +1,27 @@
 const express = require('express');
+const axios = require('axios');
 const cors = require('cors');
-require('dotenv').config();
-const { fetch } = require('undici');
-
 const app = express();
 
-const allowedOrigins = [
-  'https://belto.world',
-  'https://website-3xprmt1x3-beltos-projects.vercel.app', // <-- Vercel URL
-];
-
+// Allow frontend origins
 app.use(cors({
-  origin: allowedOrigins,
-  methods: ['POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'x-api-key'],
-  credentials: true,
+  origin: '*', // or ['https://belto.world'] if you want to restrict it
+  methods: ['POST']
 }));
-
-// Preflight OPTIONS request
-app.options('/chat', (req, res) => {
-  res.set({
-    'Access-Control-Allow-Origin': req.headers.origin || '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, x-api-key',
-    'Access-Control-Allow-Credentials': 'true',
-  });
-  res.sendStatus(204);
-});
-
 
 app.use(express.json());
 
-const API_KEY = process.env.API_KEY;
-const LLAMA_URL = process.env.LLAMA_URL;
-
+// This is the only endpoint your frontend will call
 app.post('/chat', async (req, res) => {
-  const incomingKey = req.headers['x-api-key'];
-  if (incomingKey !== API_KEY) {
-    return res.status(403).json({ error: 'Forbidden' });
-  }
-
   try {
-    const response = await fetch(`${LLAMA_URL}/completion`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(req.body),
+    const response = await axios.post('http://localhost:11434/completion', req.body, {
+      headers: { 'Content-Type': 'application/json' }
     });
-
-    const data = await response.json();
-    res.json(data);
+    res.json(response.data);
   } catch (err) {
     console.error('❌ Proxy error:', err.message);
     res.status(500).json({ error: 'Proxy failed' });
   }
 });
 
-app.listen(3001, () => console.log('✅ Proxy running on port 3001'));
+app.listen(3001, () => console.log('✅ Belto Proxy running on http://localhost:3001'));
