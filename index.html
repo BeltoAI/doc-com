@@ -198,7 +198,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Font Awesome for Icon -->
 <script src="https://kit.fontawesome.com/7749c9f08a.js" crossorigin="anonymous"></script>
 
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('user-input');
@@ -232,9 +231,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     log.scrollTop = log.scrollHeight;
 
     if (awaitingSupportDescription) {
-      const emailBody = encodeURIComponent(
-        `Hi Belto Support, I need help with the following issue: ${message} Thanks!`
-      );
+      const emailBody = encodeURIComponent(`Hi Belto Support, I need help with the following issue: ${message} Thanks!`);
       const mailtoLink = `mailto:support@belto.world?subject=Support Request&body=${emailBody}`;
       botMsg.innerHTML = `<b>Belto:</b><br>Thanks! Click <a href="${mailtoLink}" style="color: #ffd700; text-decoration: underline;">here</a> to send your support request.`;
       awaitingSupportDescription = false;
@@ -248,41 +245,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     try {
-  const systemPrompt = `You are Belto, the official AI assistant of Belto.world...`;
-  const contextText = `Belto is an AI-powered classroom platform...`;
+      const systemPrompt = `You are Belto, the official AI assistant of Belto.world. Answer clearly, professionally, and briefly. You help users understand Belto’s purpose, features, and mission.`;
+      const contextText = `Belto is an AI-powered classroom platform that integrates with LMS systems. It enforces AI usage rules, generates TikTok-style video summaries, and provides AI feedback on student work.`;
 
-  const formattedPrompt = `<|system|>\n${systemPrompt}\n<|context|>\n${contextText}\n<|user|>\n${message}\n<|assistant|>\n`;
+      const formattedPrompt = `<|system|>\n${systemPrompt}\n<|context|>\n${contextText}\n<|user|>\n${message}\n<|assistant|>\n`;
 
-  const res = await fetch('https://ff7c-71-84-65-200.ngrok-free.app/secure-chat', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': 'belto_super_secure_34892_z7d8'
-    },
-    body: JSON.stringify({ prompt: formattedPrompt, n_predict: 64 })
-  });
-
-  if (!res.ok) throw new Error(`Server returned ${res.status}`);
-
-  const json = await res.json();
-  const reply = json.content || "(No response)";
-  const formatted = sanitizeReply(reply);
-  const suggestions = generateSuggestions(reply);
-
-  botMsg.innerHTML = `<b>Belto:</b><br>${formatted}<div class="suggestions">${suggestions}</div>`;
-  log.scrollTop = log.scrollHeight;
-
-  const utterance = new SpeechSynthesisUtterance(reply);
-  utterance.lang = 'en-US';
-  utterance.rate = 1.05;
-  utterance.pitch = 1.1;
-  speechSynthesis.speak(utterance);
-
-} catch (err) {
-  botMsg.innerHTML = `<div style='color:red'><b>Error:</b> ${escapeHTML(err.message)}</div>`;
-}
-
-
+      const res = await fetch('https://ff7c-71-84-65-200.ngrok-free.app/secure-chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': 'belto_super_secure_34892_z7d8'
+        },
+        body: JSON.stringify({ prompt: formattedPrompt, n_predict: 64 })
+      });
 
       if (!res.ok) throw new Error(`Server returned ${res.status}`);
 
@@ -339,6 +314,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     return picks.map(q => `<button class="suggestion" onclick="document.getElementById('user-input').value='${q}'; sendMessage();">${q}</button>`).join('');
   }
 </script>
+
 
 
 
