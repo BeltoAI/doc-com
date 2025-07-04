@@ -248,19 +248,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     try {
-      const systemPrompt = `You are Belto, the official AI assistant of Belto.world...`; // Truncated for readability
-      const contextText = `Belto is an AI-powered classroom platform...`; // Truncated for readability
+  const systemPrompt = `You are Belto, the official AI assistant of Belto.world...`;
+  const contextText = `Belto is an AI-powered classroom platform...`;
 
-      const formattedPrompt = `<|system|>\n${systemPrompt}\n<|context|>\n${contextText}\n<|user|>\n${message}\n<|assistant|>\n`;
+  const formattedPrompt = `<|system|>\n${systemPrompt}\n<|context|>\n${contextText}\n<|user|>\n${message}\n<|assistant|>\n`;
 
-      await fetch('https://api.belto.world/chat', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'x-api-key': 'belto_super_secure_34892_z7d8'
-  },
-  body: JSON.stringify({ prompt: 'Test from frontend', n_predict: 32 })
-});
+  const res = await fetch('https://ff7c-71-84-65-200.ngrok-free.app/chat', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': 'belto_super_secure_34892_z7d8'
+    },
+    body: JSON.stringify({ prompt: formattedPrompt, n_predict: 64 })
+  });
+
+  if (!res.ok) throw new Error(`Server returned ${res.status}`);
+
+  const json = await res.json();
+  const reply = json.content || "(No response)";
+  const formatted = sanitizeReply(reply);
+  const suggestions = generateSuggestions(reply);
+
+  botMsg.innerHTML = `<b>Belto:</b><br>${formatted}<div class="suggestions">${suggestions}</div>`;
+  log.scrollTop = log.scrollHeight;
+
+  const utterance = new SpeechSynthesisUtterance(reply);
+  utterance.lang = 'en-US';
+  utterance.rate = 1.05;
+  utterance.pitch = 1.1;
+  speechSynthesis.speak(utterance);
+
+} catch (err) {
+  botMsg.innerHTML = `<div style='color:red'><b>Error:</b> ${escapeHTML(err.message)}</div>`;
+}
+
 
 
       if (!res.ok) throw new Error(`Server returned ${res.status}`);
