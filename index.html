@@ -1026,128 +1026,89 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
 
 
       
-<style>
-.pricing-row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.plan-card {
-  flex: 1 1 220px;
-  max-width: 260px;
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.plan-card.highlight {
-  border: 2px solid #007BFF;
-  background-color: #f8fbff;
-}
-
-.plan-card h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.plan-card .price {
-  font-size: 22px;
-  font-weight: 700;
-  margin: 10px 0;
-}
-
-.plan-card .price span {
-  font-size: 14px;
-  font-weight: 400;
-  color: #555;
-}
-
-.plan-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0 0 0;
-  text-align: left;
-  font-size: 14px;
-}
-
-.plan-card ul li {
-  margin-bottom: 10px;
-}
-
-.plan-card .btn {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #ffb400;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
-}
-.plan-card .btn:hover {
-  background-color: #ff9900;
-}
-</style>
-
-<div class="pricing-row">
-
-  <div class="plan-card highlight">
-    <h3>Free Plan</h3>
-    <div class="price">$0 <span>/ forever</span></div>
-    <a href="https://belto.world/signup" class="btn">Get Started</a>
-    <ul>
-      <li>Up to 2 classes / 50 students</li>
-      <li>Basic LMS integration</li>
-      <li>Basic feedback (no TikTok explainers)</li>
-    </ul>
-  </div>
-
-  <div class="plan-card">
-    <h3>Base Plan</h3>
-    <div class="price">$13.99 <span>/ month</span></div>
-    <a href="https://belto.world/signup" class="btn">Upgrade</a>
-    <ul>
-      <li>Up to 5 classes / 150 students</li>
-      <li>Assignments & rubrics automation</li>
-      <li>Grade sync with LMS</li>
-      <li>5 TikTok explainers / month</li>
-    </ul>
-  </div>
-
-  <div class="plan-card">
-    <h3>Max Plan</h3>
-    <div class="price">$17.99 <span>/ month</span></div>
-    <a href="https://belto.world/signup" class="btn">Upgrade</a>
-    <ul>
-      <li>Unlimited classes & students</li>
-      <li>Unlimited TikTok explainers</li>
-      <li>Debate & Teach modes</li>
-      <li>Advanced analytics & rules</li>
-    </ul>
-  </div>
-
-  <div class="plan-card">
-    <h3>Institution License</h3>
-    <div class="price">Custom Pricing</div>
-    <a href="https://calendly.com/belto-support/30min" class="btn">Request Demo</a>
-    <ul>
-      <li>Full school or district coverage</li>
-      <li>Email domain-based access</li>
-      <li>Admin analytics dashboard</li>
-      <li>Onboarding & training included</li>
-    </ul>
-  </div>
-
+<!-- Case 1: Institutional / District License -->
+<div class="col-md-6 col-lg-3">
+    <div class="single-plane wow fadeInUp">
+        <div class="plane-heading">
+            <h3>Institution License</h3>
+        </div>
+        <div class="price-show">
+            <h3>Custom Pricing</h3>
+        </div>
+        <div class="get-start-button">
+            <a href="https://calendly.com/belto-support/30min">Request Demo</a>
+        </div>
+        <ul class="pkg-list">
+            <li>Unlimited classes and students across a school/district</li>
+            <li>Email domain-based access control</li>
+            <li>Admin dashboard with analytics & policy controls</li>
+            <li>Dedicated onboarding and support</li>
+        </ul>
+    </div>
 </div>
+
+<!-- Case 2: Free Plan -->
+<div class="col-md-6 col-lg-3">
+    <div class="single-plane wow fadeInUp">
+        <div class="plane-heading">
+            <h3>Free Plan</h3>
+        </div>
+        <div class="price-show">
+            <h3>$0</h3>
+        </div>
+        <div class="get-start-button">
+            <a href="https://belto.world/signup">Get Started</a>
+        </div>
+        <ul class="pkg-list">
+            <li>Up to 2 classes / 50 students</li>
+            <li>Basic LMS integration</li>
+            <li>Basic feedback (no TikTok explainers)</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Case 3: Base Plan -->
+<div class="col-md-6 col-lg-3">
+    <div class="single-plane wow fadeInUp">
+        <div class="plane-heading">
+            <h3>Base Plan</h3>
+        </div>
+        <div class="price-show">
+            <h3><sup>$</sup>13.99 <span>/month</span></h3>
+        </div>
+        <div class="get-start-button">
+            <a href="https://belto.world/signup">Upgrade</a>
+        </div>
+        <ul class="pkg-list">
+            <li>Up to 5 classes / 150 students</li>
+            <li>Automated modules, assignments, and rubrics</li>
+            <li>LMS grade sync</li>
+            <li>Limited TikTok-style explainers (5 per class/month)</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Case 4: Max Plan -->
+<div class="col-md-6 col-lg-3">
+    <div class="single-plane wow fadeInUp">
+        <div class="plane-heading">
+            <h3>Max Plan</h3>
+        </div>
+        <div class="price-show">
+            <h3><sup>$</sup>17.99 <span>/month</span></h3>
+        </div>
+        <div class="get-start-button">
+            <a href="https://belto.world/signup">Upgrade</a>
+        </div>
+        <ul class="pkg-list">
+            <li>Unlimited classes and students</li>
+            <li>Unlimited TikTok explainers</li>
+            <li>Debate & Teach Modes (beta)</li>
+            <li>Advanced analytics and AI rule customization</li>
+        </ul>
+    </div>
+</div>
+
 
 
 
