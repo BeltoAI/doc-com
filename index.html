@@ -199,15 +199,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://kit.fontawesome.com/7749c9f08a.js" crossorigin="anonymous"></script>
 
 <script>
-  // ======= CONFIG (HTTPS so it works from GitHub Pages) =======
-  // Uses your existing secure ngrok endpoint which accepts JSON { prompt, n_predict }
-  const ENDPOINT = 'https://17f2-71-84-65-200.ngrok-free.app/secure-chat';
-  const ENDPOINT_HEADERS = {
-    'Content-Type': 'application/json',
-    'x-api-key': 'belto_super_secure_34892_z7d8'
-  };
-  // ===========================================================
-
   document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('user-input');
     input.addEventListener('keydown', (e) => {
@@ -329,18 +320,17 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
 
       const formattedPrompt = `<|system|>\n${systemPrompt}\n<|context|>\n${contextText}\n<|user|>\n${message}\n<|assistant|>\n`;
 
-      // HTTPS call so it works from GitHub Pages (no mixed content)
-      const res = await fetch(ENDPOINT, {
+      // Call same-origin HTTPS proxy on Vercel to avoid CORS/mixed-content
+      const res = await fetch('/api/completions', {
         method: 'POST',
-        headers: ENDPOINT_HEADERS,
-        body: JSON.stringify({ prompt: formattedPrompt, n_predict: 256 })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model: "local", prompt: formattedPrompt, max_tokens: 256, temperature: 0.7 })
       });
 
       if (!res.ok) throw new Error(`Server returned ${res.status}`);
 
       const json = await res.json();
-      // Support either { content } or OpenAI-style { choices[0].text }
-      const reply = (json && (json.content || json.choices?.[0]?.text)) || "(No response)";
+      const reply = json?.content || json?.choices?.[0]?.text || "(No response)";
       const formatted = sanitizeReply(String(reply));
       const suggestions = generateSuggestions(String(reply));
 
@@ -552,6 +542,7 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
   <strong>Disclaimer:</strong> AI-generated responses may be inaccurate or incomplete. For precise information or official support, please contact us at 
   <a href="mailto:support@belto.world" style="color: #ffd700; text-decoration: underline;">support@belto.world</a>.
 </div>
+
 
 
 
@@ -1793,6 +1784,7 @@ Case 4: Max Plan
    
     </body>
 </html>
+
 
 
 
