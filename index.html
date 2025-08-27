@@ -322,7 +322,7 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
 
       const formattedPrompt = `<|system|>\n${systemPrompt}\n<|context|>\n${contextText}\n<|user|>\n${message}\n<|assistant|>\n`;
 
-      const res = await fetch('http://minibelto.duckdns.org:8007/v1/completions', {
+      const res = await fetch('/api/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -1792,6 +1792,7 @@ Case 4: Max Plan
    
     </body>
 </html>
+
 
 
 
