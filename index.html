@@ -201,12 +201,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const input = document.getElementById('user-input');
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        sendMessage();
-      }
-    });
+    if (input) {
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+    }
   });
 
   let awaitingSupportDescription = false;
@@ -214,7 +216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   async function sendMessage() {
     const input = document.getElementById('user-input');
     const log = document.getElementById('chat-log');
-    const message = input.value.trim();
+    const message = (input?.value || '').trim();
     if (!message) return;
 
     const userMsg = document.createElement('div');
@@ -320,7 +322,7 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
 
       const formattedPrompt = `<|system|>\n${systemPrompt}\n<|context|>\n${contextText}\n<|user|>\n${message}\n<|assistant|>\n`;
 
-      // Call same-origin HTTPS proxy on Vercel to avoid CORS/mixed-content
+      // Call same-origin HTTPS proxy on Vercel (requires /api/completions in the same project)
       const res = await fetch('/api/completions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -427,15 +429,8 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
   line-height: 1.5;
 }
 
-.chat-message.user {
-  background: #1b1b1b;
-  color: #ccc;
-}
-
-.chat-message.bot {
-  background: #101010;
-  color: #fff;
-}
+.chat-message.user { background: #1b1b1b; color: #ccc; }
+.chat-message.bot  { background: #101010; color: #fff; }
 
 /* Input */
 #user-input {
@@ -464,10 +459,7 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-
-#send-btn:hover {
-  transform: scale(1.2);
-}
+#send-btn:hover { transform: scale(1.2); }
 
 .particles {
   position: absolute;
@@ -490,10 +482,7 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
   animation: spin 1s linear infinite;
   margin: 10px auto;
 }
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+@keyframes spin { to { transform: rotate(360deg); } }
 
 .suggestions {
   margin-top: 16px;
@@ -501,7 +490,6 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
   gap: 10px;
   flex-wrap: wrap;
 }
-
 .suggestion {
   background: #ffd700;
   color: black;
@@ -512,27 +500,25 @@ Belto’s mission is to create a trustworthy, structured AI teaching agent that 
   font-size: 14px;
   transition: background 0.2s ease;
 }
-.suggestion:hover {
-  background: #e6c200;
-}
+.suggestion:hover { background: #e6c200; }
 
 @keyframes bounceIn {
   from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(0);   opacity: 1; }
 }
 
 @keyframes glowPulse {
   0%, 100% { box-shadow: 0 0 20px #ffd70033; }
-  50% { box-shadow: 0 0 60px #ffd70088; }
+  50%      { box-shadow: 0 0 60px #ffd70088; }
 }
 
 @keyframes floatParticles {
-  0% { background-position: 0 0; }
+  0%   { background-position: 0 0; }
   100% { background-position: 1000px 1000px; }
 }
 
 @keyframes borderScan {
-  0% { background-position: 0% 50%; }
+  0%   { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
 }
 </style>
@@ -1784,6 +1770,7 @@ Case 4: Max Plan
    
     </body>
 </html>
+
 
 
 
